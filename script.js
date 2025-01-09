@@ -977,7 +977,7 @@ if(peice == 'Bpawn' && y == 8){
     promoteModalB.addEventListener('click', event => {
     const div = event.target;
     const backgroundImage = window.getComputedStyle(div).backgroundImage;
-    const match = backgroundImage.match(/\/([\w-]+)\.\w+/);
+    const match = backgroundImage.match(/\/([\w-]+)\.png/);
     blocks[targetSquare.id].name = match[1];
     promoteModalB.style.display = 'none';
 
