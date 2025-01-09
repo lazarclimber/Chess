@@ -778,7 +778,7 @@ if(whiteToMove){
         promoteModalW.addEventListener('click', event => {
         const div = event.target;
         const backgroundImage = window.getComputedStyle(div).backgroundImage;
-        const match = backgroundImage.match(/\/([\w-]+)\.\w+/);
+        const match = backgroundImage.match(/\/([\w-]+)\.png/);
         blocks[targetSquare.id].name = match[1];
         promoteModalW.style.display = 'none';
 
