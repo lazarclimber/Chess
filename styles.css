@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Cookie&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Playball&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Rubik+80s+Fade&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #3a3936; */
+    background-image: linear-gradient(to right top, #3a3936, #34332f, #2e2d29, #292722, #23211c);
+}
+
+.main-container{
+    /* border: 20px solid rgba(0, 0, 0, 0.5); */
+    width: 640px;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.squareB{
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: hsl(0, 0%, 54%);
+    /* box-shadow: inset -3px -3px 3px 0 #777777,
+                inset  3px  3px 0 #b6b2b2d7; */
+}
+.squareW{
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: hsla(40, 18%, 93%, 0.925);
+
+    /* box-shadow: inset -3px -3px 3px 0 #777777,
+                inset  3px  3px 0 #b6b2b2d7; */
+}
+
+.selectedSquare{
+    width: 80px;
+    height: 80px;
+    border: 5px solid rgba(251, 255, 0, 0.836);
+    border-radius: 10px;
+    /* box-shadow:-3px -3px -3px 3px #eeff00e1; */
+    box-shadow: #eeff00 0px 0px 10px 4px;
+}
+
+.kingInCheck{
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 0, 0, 0.692);
+    box-shadow: inset 0 0 15px rgb(0, 0, 0);
+}
+
+.possibleMoves{
+    background-color: rgb(15, 59, 255);
+    box-shadow: inset 0 0 25px rgb(0, 0, 0);
+}
+
+.modalW, .modalB{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.589);
+    display: none;
+}
+.peices {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    width: 300px;
+    height: 90px;
+    background-color: #ffffff;
+}
+
+.custom-modal {
+    display: none;
+    position: absolute;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.801);
+    max-width: 400px;
+    padding: 50px;
+    top: 50%;
+    transform: translateY(-55%);
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 11;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.inner-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+}
+
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1.7rem;
+    padding: 5px;
+}
+
+.closeModal:hover {
+    background-color: white;
+    color: black;
+}
+
+#p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8{
+    width: 70px;
+    height: 70px;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.2s;
+}
+
+#p1:hover, #p2:hover, #p3:hover, #p4:hover, #p5:hover, #p6:hover, #p7:hover, #p8:hover{
+    background-color: rgba(97, 97, 97, 0.719);
+}
+
+#p1{
+    background-image: url(./images/Wqueen.png);
+    background-size: 83%;
+}
+
+#p2{
+    background-image: url(./images/Wknight.png);
+}
+
+#p3{
+    background-image: url(./images/Wrook.png);
+    background-size: 70%;
+}
+
+#p4{
+    background-image: url(./images/Wbishop.png);
+}
+
+#p5{
+    background-image: url(./images/Bqueen.png);
+    background-size: 83%;
+}
+
+#p6{
+    background-image: url(./images/Bknight.png);
+}
+
+#p7{
+    background-image: url(./images/Brook.png);
+    background-size: 70%;
+}
+
+#p8{
+    background-image: url(./images/Bbishop.png);
+}
+
+
+.boton-elegante {
+    padding: 15px 30px;
+    border: 2px solid #2c2c2c;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  
+  .boton-elegante::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .boton-elegante:hover::after {
+    transform: scale(4);
+  }
+  
+  .boton-elegante:hover {
+    border-color: #666666;
+    background: #292929;
+  }
+
+
+
+  @media screen and (max-width: 490px){
+    .main-container{
+        width: 400px;
+    }
+    .squareB{
+        width: 50px;
+        height: 50px;
+    }
+    .squareW{
+        width: 50px;
+        height: 50px;
+    }
+    .selectedSquare{
+        width: 50px;
+        height: 50px;
+        box-shadow: #eeff00 0px 0px 7px 2px;
+    }
+    .kingInCheck{
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 0, 0, 0.692);
+        box-shadow: inset 0 0 15px rgb(0, 0, 0);
+    }
+    .peices {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid;
+        width: 200px;
+        height: 60px;
+        background-color: #ffffff;
+    }
+    .custom-modal {
+        max-width: 200px;
+        padding: 25px;
+    }
+    .inner-div {
+        font-size: 1rem;
+    }
+    .closeModal{
+        top: 7px;
+        right: 7px;
+        font-size: 1.3rem;
+        padding: 3px;
+    }
+    #p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8{
+        width: 50px;
+        height: 50px;
+    }
+    .boton-elegante {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+  }
